@@ -52,7 +52,7 @@ deliverables/
 ## Execution:
 - ``utils.py`` and ``utils_visual.py`` were not changed.
 - ``config.yml`` includes with the parameters of the models used.
-- ``aiot_dataset_creation.ipynb`` initialized the database and should be run first.
+- ``aiot_dataset_creation.ipynb`` initializes the database and should be run first.
 - ``aiot_project.ipynb`` contains the rest of the project
 - The whole project can be run by sequencially running the code in the cells found the two above files.
 

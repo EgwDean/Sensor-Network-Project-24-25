@@ -11,7 +11,7 @@ col: watch_data
 
 #--------------------- Dataframe Instantiation ----------------------
 # Dataframe columns list
-order: ["X", "Y", "Z"]
+order: ['x-acceleration', 'y-acceleration', 'z-acceleration'] # changed to the correct names
 rename: ["acc_x", "acc_y", "acc_z"]
 
 
@@ -44,32 +44,57 @@ filter:
 #--------------------- $ Data Preparation ----------------------
 # Dimensionality reduction
 PCA:
-  n_comp:
+  n_comp: [2, 3]
+  variance: 0.95
 
 
 #--------------------- Learning ----------------------
 # Classifier - Statistical
 classifier:
   SVC:
-    C:
-    kernel: "rbf"
-    gamma:
-  # classifier 2
-    # put your other Statistical-related classifier params here
-  # classifier 3
-    # put your other Statistical-related classifier params here
+    C: 0.01
+    kernel: "linear"
+    gamma: "scale"
+    max_iter: -1
+  RandomForest:
+    n_estimators: 10
+    max_depth: 10
+    max_features: "log2"
+    criterion: "gini"
+    bootstrap: False
+    n_jobs: -1
+    random_state: 42
+
 
 # Parameter Grid for Fine-tuning, for instance, a Grid Search classifier
-fine_tune:
+
+# Support Vector Machine
+fine_tune_svc:
   param_grid: [
     {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
     {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.0001], 'kernel': ['rbf']},
    ]
   cv: 5
   verbose: 1
+  scoring: 'accuracy'
+  n_jobs: -1
+
+# Random Forest
+fine_tune_rf:
+  param_grid:
+      n_estimators: [10, 150, 300]
+      max_depth: [10, 20, 30, null]
+      max_features: ['log2', 'sqrt']
+      criterion: ['gini', 'entropy']
+      bootstrap: [True, False]
+  cv: 5
+  verbose: 1
+  scoring: 'accuracy'
+  n_jobs: -1
+  error_score: 'raise'
 
 # Classifier - Neural Network
 fit:
-  epochs:
-  batch:
+  epochs: 100
+  batch: 16
   verbose: "auto"

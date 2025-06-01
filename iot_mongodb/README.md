@@ -51,10 +51,15 @@ deliverables/
 
 ## Execution:
 - ``utils.py`` and ``utils_visual.py`` were not changed.
-- ``config.yml`` includes with the parameters of the models used.
+- ``config.yml`` includes the parameters of the models used.
 - ``aiot_dataset_creation.ipynb`` initializes the database and should be run first.
 - ``aiot_project.ipynb`` contains the rest of the project
-- The whole project can be run by sequencially running the code in the cells found the two above files.
+- The whole project can be run sequencially, by running the code in the cells found the two above files.
 
 ## Gestures' Collection:
- 
+The watch data were collected in the following way:
+
+- The watch was worn on the right hand of the person who performed the movements.  
+- All movements for the letters were performed while sitting down on a chair, in the exact same position.  
+- For each of the five letters: A, D, L, M, and U, there are five measurements. The duration of each measurement is exactly ten seconds long, meaning that there are fifty seconds of data for each letter.  
+- For all measurements, the movement of the right hand began before starting the measurement and concluded after the measurement was completed.

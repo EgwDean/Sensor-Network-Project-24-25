@@ -14,4 +14,4 @@ tensorflow==2.14.0
 tensorflow-metal==1.1.0; platform_system=='Darwin'
 psynlig==0.2.2.dev0
 pydot==2.0.0
-graphviz pydot==4.0.0
+graphviz==0.20.3
